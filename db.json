@@ -54,6 +54,27 @@
       "id": 11,
       "quote": "The here and now is all we have, and if we play it right it's all we'll need.",
       "author": "Ann Richards"
+    },
+    {
+      "quote": "I dont know what I am doing",
+      "author": "Steven",
+      "id": 12
+    },
+    {
+      "quote": "You only miss 100% of the shots you dont take",
+      "author": "Kobe",
+      "id": 13
+    },
+    {
+      "quote": "To Live is Christ, To Die is Gain",
+      "author": "Jesus",
+      "id": 14
+    },
+    {
+      "quote": "Hi",
+      "author": "Steven",
+      "likes": [],
+      "id": 15
     }
   ],
   "likes": [
@@ -66,6 +87,30 @@
       "quoteId": 10,
       "id": 2,
       "createdAt": 1558524358
+    },
+    {
+      "quoteId": 2,
+      "id": 3
+    },
+    {
+      "quoteId": 1,
+      "id": 4
+    },
+    {
+      "quoteId": 15,
+      "id": 5
+    },
+    {
+      "quoteId": 14,
+      "id": 6
+    },
+    {
+      "quoteId": 13,
+      "id": 7
+    },
+    {
+      "quoteId": 13,
+      "id": 8
     }
   ]
 }

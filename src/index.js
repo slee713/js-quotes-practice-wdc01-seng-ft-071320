@@ -1,9 +1,83 @@
+
+
 const baseUrl = "http://localhost:3000/quotes/"
 const withLikesUrl = "http://localhost:3000/quotes?_embed=likes"
 const likesUrl = "http://localhost:3000/likes/"
 
 const quoteList = document.querySelector("#quote-list")
 const form = document.querySelector("#new-quote-form")
+
+//make hidden form
+let formContainer = document.querySelector(".form-container")
+
+let editForm = document.createElement("form")
+editForm.setAttribute("id", "edit-quote-form")
+
+let quoteLabel = document.createElement("label")
+quoteLabel.innerText = "Quote"
+quoteLabel.setAttribute("for", "edit-quote")
+
+let quoteInput = document.createElement("input")
+quoteInput.setAttribute("name", "quote")
+quoteInput.setAttribute("type", "text")
+quoteInput.setAttribute("class", "form-control")
+quoteInput.setAttribute("id", "edit-quote")
+
+let quoteID = document.createElement("input")
+quoteID.setAttribute("type", "hidden")
+
+let authorLabel = document.createElement("label")
+authorLabel.innerText = "Author"
+authorLabel.setAttribute("for", "Author")
+
+let authorInput = document.createElement("input")
+authorInput.setAttribute("name", "author")
+authorInput.setAttribute("type", "text")
+authorInput.setAttribute("class", "form-control")
+authorInput.setAttribute("id", "author")
+
+let submit = document.createElement("button")
+submit.setAttribute("type", "submit")
+submit.setAttribute("class", "btn btn-primary")
+submit.innerText = "Edit"
+
+
+editForm.append(quoteID, quoteLabel, quoteInput, authorLabel, authorInput, submit)
+
+formContainer.append(editForm)
+formContainer.style.display = "none"
+
+submit.addEventListener("click", ()=>{
+    event.preventDefault()
+    id = quoteID.value
+    editedQuote = quoteInput.value
+    editedAuthor = authorInput.value
+    config = {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "accept": "application/json"
+        },
+        body: JSON.stringify({
+            quote: editedQuote,
+            author: editedAuthor
+        })
+    }
+    fetch(baseUrl+`${id}`, config)
+    .then(res => res.json())
+    .then(()=>{
+        form.reset()
+        formContainer.style.display = "none"
+        quoteList.innerHTML = ""
+        fetchQuotes()
+    })
+})
+
+
+
+
+
+
 
 fetchQuotes()
 function fetchQuotes(){
@@ -42,7 +116,10 @@ function createQuote(quote){
     deleteBtn.className = "btn-danger"
     deleteBtn.innerText = "Delete"
 
-    blockQuote.append(p, footer, br, likeBtn, deleteBtn)
+    let editBtn = document.createElement("button")
+    editBtn.innerText = "Edit"
+
+    blockQuote.append(p, footer, br, likeBtn, deleteBtn, editBtn)
     li.append(blockQuote)
     quoteList.append(li)
 
@@ -71,6 +148,13 @@ function createQuote(quote){
             quote.likes.push(like)
             likeBtn.innerHTML = `Likes: <span>${quote.likes.length}</span>`
         })
+    })
+
+    editBtn.addEventListener("click", () => {
+        formContainer.style.display = "block"
+        quoteID.value = quote.id
+        quoteInput.value = quote.quote
+        authorInput.value = quote.author
     })
 }
 

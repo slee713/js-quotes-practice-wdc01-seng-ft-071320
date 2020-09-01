@@ -3,7 +3,7 @@
     {
       "id": 1,
       "quote": "Expect nothing. Live frugally on surprise.",
-      "author": "Alice Walker Steve"
+      "author": "Alice Walker "
     },
     {
       "id": 2,
@@ -126,6 +126,10 @@
     {
       "quoteId": 14,
       "id": 15
+    },
+    {
+      "quoteId": 2,
+      "id": 16
     }
   ]
 }

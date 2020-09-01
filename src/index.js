@@ -73,8 +73,36 @@ submit.addEventListener("click", ()=>{
     })
 })
 
+let sortBtn = document.querySelector("#sort-button")
 
+sortBtn.addEventListener("click", ()=>{
+    if(sortBtn.innerText ==="Sort Off"){
+        sortBtn.innerText = "Sort On"
+        fetch(withLikesUrl)
+        .then(resp => resp.json())
+        .then(quotes => {
+            quoteList.innerHTML = ""
+            showQuotes(quotes.sort(compare))
+        })
+    } else{
+        sortBtn.innerText = "Sort Off"
+        quoteList.innerHTML = ""
+        fetchQuotes()
+    }
+})
 
+function compare(a,b){
+    const authorA = a.author.toUpperCase();
+    const authorB = b.author.toUpperCase();
+
+    let comparison =0;
+    if (authorA > authorB){
+        comparison=1;
+    } else if (authorA < authorB){
+        comparison = -1;
+    }
+    return comparison
+}
 
 
 

@@ -66,15 +66,10 @@
       "id": 13
     },
     {
-      "quote": "To Live is Christ, To Die is Gain",
-      "author": "Jesus",
-      "id": 14
-    },
-    {
-      "quote": "Hi",
+      "quote": "Hello",
       "author": "Steven",
       "likes": [],
-      "id": 15
+      "id": 14
     }
   ],
   "likes": [
@@ -97,20 +92,40 @@
       "id": 4
     },
     {
-      "quoteId": 15,
-      "id": 5
-    },
-    {
-      "quoteId": 14,
-      "id": 6
-    },
-    {
       "quoteId": 13,
       "id": 7
     },
     {
       "quoteId": 13,
       "id": 8
+    },
+    {
+      "quoteId": 1,
+      "id": 9
+    },
+    {
+      "quoteId": 1,
+      "id": 10
+    },
+    {
+      "quoteId": 1,
+      "id": 11
+    },
+    {
+      "quoteId": 2,
+      "id": 12
+    },
+    {
+      "quoteId": 2,
+      "id": 13
+    },
+    {
+      "quoteId": 14,
+      "id": 14
+    },
+    {
+      "quoteId": 14,
+      "id": 15
     }
   ]
 }

@@ -34,7 +34,7 @@ let authorInput = document.createElement("input")
 authorInput.setAttribute("name", "author")
 authorInput.setAttribute("type", "text")
 authorInput.setAttribute("class", "form-control")
-authorInput.setAttribute("id", "author")
+authorInput.setAttribute("id", "edit-author")
 
 let submit = document.createElement("button")
 submit.setAttribute("type", "submit")
@@ -200,10 +200,10 @@ form.addEventListener("submit", ()=>{
         body: JSON.stringify({
             quote: newQuote,
             author: author,
-            likes: likes,
+            likes: likes
         })
     }
-    fetch(withLikesUrl, config)
+    fetch(baseUrl, config)
     .then(res => res.json())
     .then(newQuote => createQuote(newQuote))
     form.reset()
